@@ -6,6 +6,9 @@ $db = new mysqli('localhost', 'root', '', 'db');
 $sql = "SELECT * FROM person";
 // wykonaj kwerendę na serwerze MySQL i zapisz wynik do zmiennej $result
 $result = $db->query($sql);
+if($result == false) {
+    die("Błąd w zapytaniu!");
+}
 // wyciągamy pierwszą (jedyną) linijkę z wyniku zapytania do zmiennej $row
 while ($row = $result->fetch_assoc()) {
     //wewnątrz tego while, w każdej iteracji $row będzie innym wierszem
