@@ -27,7 +27,6 @@
     }
     $sql = "SELECT 
         book.id,
-        book.id, 
         CONCAT(author.first_name, ' ', author.last_name) AS author, 
         title.book_title AS title FROM book 
         LEFT JOIN author ON author.ID = book.author 
