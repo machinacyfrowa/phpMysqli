@@ -32,7 +32,8 @@
         title.book_title AS title FROM book 
         LEFT JOIN author ON author.ID = book.author 
         LEFT JOIN title ON title.ID = book.title 
-        WHERE author.last_name LIKE '" . $name . "'";
+        WHERE author.last_name LIKE '" . $name . "' 
+        OR author.first_name LIKE '" . $name . "'";
 
     $db = new mysqli('localhost', 'root', '', 'book_catalog');
     $result = $db->query($sql);
