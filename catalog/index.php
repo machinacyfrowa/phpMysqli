@@ -37,12 +37,17 @@
     $db = new mysqli('localhost', 'root', '', 'book_catalog');
     $result = $db->query($sql);
     echo '<table class="table">';
-    echo "<tr><th>ID</th><th>Autor</th><th>Tytuł</th></tr>";
+    echo "<tr><th>ID</th><th>Autor</th><th>Tytuł</th><th>Edycja</th><th>Usunięcie</th></tr>";
     while ($row = $result->fetch_assoc()) {
         $id = $row['id'];
         $author = $row['author'];
         $title = $row['title'];
-        echo "<tr><td>$id</td><td>$author</td><td>$title</td></tr>";
+        $editLink = '<a href="edit.php?id='.$id.'">Edytuj</a>';
+        $removeLink = '<a href="remove.php?id='.$id.'">Usuń</a>';
+        echo "<tr>";
+        echo "<td>$id</td><td>$author</td><td>$title</td>";
+        echo "<td>$editLink</td><td>$removeLink</td>";
+        echo "</tr>";
     }
     echo "</table>";
     ?>
